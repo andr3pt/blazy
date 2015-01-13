@@ -166,7 +166,7 @@
 	    return (
 		 // inside horizontal view
 		 rect.left >= 0
-		 && rect.right <= winWidth + options.offset	 
+		 && rect.left <= winWidth + options.offset
 		 && (
 		 // from top to bottom
 		 rect.top  >= 0
