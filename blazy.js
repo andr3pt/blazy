@@ -137,7 +137,9 @@
  				i--;
  			} 
  		}
-		if(count === 0) {
+ 		// Only destroy if no breakpoints are specified
+ 		// (ie, no breakpoint switch detection is needed)
+		if(count === 0 && options.breakpoints.length == 0) {
 			Blazy.prototype.destroy();
 		}
 	}
