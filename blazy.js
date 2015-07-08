@@ -181,14 +181,13 @@
 			// check if the resized jumped across a breakpoint
 			current = activeBreakpoint();
 			if (previousBreakpoint && current != previousBreakpoint) {
+				each(document.querySelectorAll('.' + options.successClass), function(ele){
+					ele.className = ele.className.replace(new RegExp(options.successClass, 'g'), '');
+				});
+
+				source = current.src;
 				Blazy.prototype.destroy();
-				setTimeout(function() {
-					source = current.src;
-					each(document.querySelectorAll('.' + options.successClass), function(ele){
-						ele.className = ele.className.replace(new RegExp(options.successClass, 'g'), '');
-					});
-					initialize();
-				}, 100);
+				initialize();
 			}
 			previousBreakpoint = current;
 		}
